@@ -27,18 +27,21 @@ class Point :
         return((self.x+otherX )/2, (self.y+otherY) /2)
 
 
-
-
-
-ax,ay = (-2,-.5)
-bx,by = (3.5,1.5)
-cx,cy = (-0.5,6)
+ax,ay = (9,9)
+bx,by = (3,4)
+cx,cy = (7,8)
 dx,dy = (0,0)
 
 pointB = Point(bx,by)
 pointA = Point(ax,ay)
-dist_xA,dist_yA = pointB.distancia(cx,cy) #Point A
-dist_AB = pointB.pitagoras(dist_xA, dist_yA)
+dist_xBA, dist_yBA = pointB.distancia(ax,ay) #Point AB
+dist_xBC, dist_yBC = pointB.distancia(cx,cy) #Point CB
+dist_xAC, dist_yAC = pointA.distancia(cx,cy)
+dist_AB = pointB.pitagoras(dist_xBA, dist_yBA)
+dist_BC = pointB.pitagoras(dist_xBC, dist_yBC)
+dist_AC = pointA.pitagoras(dist_xAC, dist_yAC)
+
+
 
 middleX_A,middleY_A = pointB.middlePoint(cx,cy)
 middleX_B,middleY_B = pointB.middlePoint(ax,ay)
@@ -46,12 +49,19 @@ middleX_C,middleY_C = pointA.middlePoint(cx,cy)
 
 print("Distancia entre puntos:")
 print(dist_AB)
-print("A prima:")
-print('X =',middleX_A,'; Y =',middleY_A)
-print("B prima:")
-print('X =',middleX_B,'; Y =',middleY_B)
-print("C prima:")
-print('X =',middleX_C,'; Y =',middleY_C)
+print(dist_BC)
+print(dist_AC)
+
+# print("A prima:")
+# print('X =',middleX_A,'; Y =',middleY_A)
+# print("B prima:")
+# print('X =',middleX_B,'; Y =',middleY_B)
+# print("C prima:")
+# print('X =',middleX_C,'; Y =',middleY_C)
 
 
+def isAlignInRect(x1,x2,x3,y1,y2,y3) :
+    xDivision = (x1-x2)/(x1-x3)
+    yDivision = (y1-y2)/(y1-y3)
 
+    return xDivision == yDivision
