@@ -48,16 +48,26 @@ middleX_B,middleY_B = pointB.middlePoint(ax,ay)
 middleX_C,middleY_C = pointA.middlePoint(cx,cy)
 
 print("Distancia entre puntos:")
-print(dist_AB)
-print(dist_BC)
-print(dist_AC)
+distancias = {
+    "AB" : dist_AB, 
+    "BC" : dist_BC, 
+    "AC" : dist_AC
+    }
+print(distancias)
 
-# print("A prima:")
-# print('X =',middleX_A,'; Y =',middleY_A)
-# print("B prima:")
-# print('X =',middleX_B,'; Y =',middleY_B)
-# print("C prima:")
-# print('X =',middleX_C,'; Y =',middleY_C)
+print("Puntos Medios:")
+
+puntosMedios = {
+    "XA" : middleX_A, 
+    "XB" : middleX_B, 
+    "XC" : middleX_C, 
+    "YA" : middleY_A,
+    "YB" : middleY_B,
+    "YC" : middleY_C
+    }
+
+print(puntosMedios)
+
 
 
 def isAlignInRect(x1,x2,x3,y1,y2,y3) :
@@ -65,3 +75,10 @@ def isAlignInRect(x1,x2,x3,y1,y2,y3) :
     yDivision = (y1-y2)/(y1-y3)
 
     return xDivision == yDivision
+
+
+print("Alineados en la recta:")
+if(isAlignInRect(ax,bx,cx,ay,by,cy)):
+    print("Si")
+else:
+    print("No")
